@@ -67,12 +67,12 @@ test('parseArgs keeps explicit scope flags over preset defaults', () => {
 
 test('applyQualityPreset maps balanced preset to default model plan', () => {
   assert.deepEqual(cliTest.applyQualityPreset({}, 'balanced'), {
-    facetModel: 'gpt-5.4-mini',
-    fastSectionModel: 'gpt-5.4-mini',
-    insightModel: 'gpt-5.4',
+    facetModel: 'gpt-5.5',
+    fastSectionModel: 'gpt-5.5',
+    insightModel: 'gpt-5.5',
     facetEffort: 'low',
     fastSectionEffort: 'low',
-    insightEffort: 'high',
+    insightEffort: 'low',
   })
 })
 

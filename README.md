@@ -117,12 +117,12 @@ Current default analysis plan:
 - `limit`: `200`
 - `facet-limit`: `50`
 - `provider`: `codex-cli`
-- `facet-model`: `gpt-5.4-mini`
-- `fast-section-model`: `gpt-5.4-mini`
-- `insight-model`: `gpt-5.4`
+- `facet-model`: `gpt-5.5`
+- `fast-section-model`: `gpt-5.5`
+- `insight-model`: `gpt-5.5`
 - `facet-effort`: `low`
 - `fast-section-effort`: `low`
-- `insight-effort`: `high`
+- `insight-effort`: `low`
 
 Important behavior defaults:
 
@@ -174,12 +174,12 @@ If you want to override the default model split manually:
 
 ```bash
 npx codex-session-insights \
-  --facet-model gpt-5.4-mini \
-  --fast-section-model gpt-5.4-mini \
-  --insight-model gpt-5.4 \
+  --facet-model gpt-5.5 \
+  --fast-section-model gpt-5.5 \
+  --insight-model gpt-5.5 \
   --facet-effort low \
   --fast-section-effort low \
-  --insight-effort high
+  --insight-effort low
 ```
 
 To suppress browser opening:
