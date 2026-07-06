@@ -44,6 +44,22 @@ test('applyScopePreset maps standard presets to expected limits', () => {
   })
 })
 
+test('applyScopePreset maps full preset to all-history uncapped scope', () => {
+  assert.deepEqual(cliTest.applyScopePreset({}, 'full'), {
+    days: 0,
+    limit: 100000,
+    facetLimit: 100000,
+  })
+})
+
+test('parseArgs defaults to the full scope preset (all history, uncapped)', () => {
+  const parsed = cliTest.parseArgs([])
+  assert.equal(parsed.options.preset, 'full')
+  assert.equal(parsed.options.days, 0)
+  assert.equal(parsed.options.limit, 100000)
+  assert.equal(parsed.options.facetLimit, 100000)
+})
+
 test('parseArgs keeps explicit scope flags over preset defaults', () => {
   const parsed = cliTest.parseArgs([
     '--preset',

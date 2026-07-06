@@ -113,9 +113,10 @@ npx codex-session-insights --provider openai --api-key $OPENAI_API_KEY
 
 Current default analysis plan:
 
-- `days`: `30`
-- `limit`: `200`
-- `facet-limit`: `50`
+- `preset`: `full` (all history, all substantive threads, all facets)
+- `days`: all history (no time filter)
+- `limit`: all substantive threads
+- `facet-limit`: all (per-thread deep analysis for every included thread)
 - `provider`: `codex-cli`
 - `facet-model`: `gpt-5.5`
 - `fast-section-model`: `gpt-5.5`
@@ -126,7 +127,8 @@ Current default analysis plan:
 
 Important behavior defaults:
 
-- `--preset lite` maps to `days=7`, `limit=20`, `facet-limit=8`, `preview=10`
+- The default `--preset full` analyzes all history with no thread/facet cap. Opt into smaller, cheaper runs with `--preset lite` (`days=7`, `limit=20`, `facet-limit=8`, `preview=10`), `--preset standard` (`days=30`, `limit=200`, `facet-limit=50`), or `--preset deep` (`limit=400`, `facet-limit=50`)
+- Because `full` can be large, preview token cost with `--estimate-only` (or the interactive confirmation) before a full run
 - `limit` means the target number of substantive threads to include in the report, not just the first 50 indexed threads
 - `facet-limit` means the max number of uncached per-thread facet analyses to run in a single report
 - Report language follows a best-effort system locale check
